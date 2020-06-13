@@ -1,0 +1,48 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "description": "chat backend",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "nodemon -w ./src/ ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fckXYZ/chat-backend.git"
+  },
+  "author": "Artem Kovtun_rtmkovtn@ya.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fckXYZ/chat-backend/issues"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "celebrate": "^12.0.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "escape-html": "^1.0.3",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.1",
+    "express-winston": "^4.0.3",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.2",
+    "mongoose-unique-validator": "^2.0.3",
+    "request": "^2.88.2",
+    "validator": "^12.2.0",
+    "winston": "^3.2.1"
+  },
+  "homepage": "https://github.com/fckXYZ/chat-backend#readme"
+}
