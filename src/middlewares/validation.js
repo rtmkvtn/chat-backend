@@ -1,18 +1,17 @@
 const { celebrate, Joi } = require('celebrate');
 
-// validators vor /users route
+// validators vor login
 const createUserValidation = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().email().required(),
-    password: Joi.string().required().min(8),
-    name: Joi.string().required().min(2).max(30),
+    password: Joi.string().required().min(4),
+    userName: Joi.string().required().min(2).max(20),
   }),
 });
 
-const loginValidation = celebrate({
+const signinValidation = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().email().required(),
-    password: Joi.string().required().min(8),
+    userName: Joi.string().required().min(2).max(20),
+    password: Joi.string().required().min(4),
   }),
 });
 
@@ -26,6 +25,6 @@ const createPostValidation = celebrate({
 
 module.exports = {
   createUserValidation,
-  loginValidation,
+  signinValidation,
   createPostValidation,
 };

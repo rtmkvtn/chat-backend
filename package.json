@@ -41,6 +41,8 @@
     "mongoose": "^5.9.2",
     "mongoose-unique-validator": "^2.0.3",
     "request": "^2.88.2",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4",
     "validator": "^12.2.0",
     "winston": "^3.2.1"
   },

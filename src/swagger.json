@@ -1,0 +1,107 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Chat API",
+    "description": "Test chat app backend API",
+    "contact": {
+      "name": "Artem Kovtun",
+      "email": "rtmkovtn@ya.ru",
+      "url": "https://newsxyz.xyz"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": ["http", "https"],
+  "tags": [
+    {
+      "name": "Posts",
+      "description": "all about the posts"
+    },
+    {
+      "name": "Users",
+      "description": "all about the users"
+    }
+  ],
+
+  "paths": {
+    "/users": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/posts": {
+      "post": {
+        "tags": ["Posts"],
+        "description": "Add a new post to the DB",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "description": "Post you want to create",
+            "schema": {
+              "$ref": "#definitions/Post"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad data input"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Posts"],
+        "description": "get an array of all the posts saved in DB",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Posts"
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "Post": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "minLength": 2
+        },
+        "text": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 200
+        }
+      }
+    },
+    "Posts": {
+      "type": "object",
+      "properties": {
+        "posts": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Post"
+          }
+        }
+      }
+    }
+  }
+}
