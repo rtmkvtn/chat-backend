@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
@@ -16,6 +17,8 @@ const config = require('./config.js');
 const swaggerOptions = require('./swagger.json');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'public'))); // теперь клиент имеет доступ только к публичным файлам
 
 // Swagger auto documentation set up
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
@@ -40,6 +43,7 @@ app.listen(config.PORT, () => {});
 app.use(config.limiter);
 // logging all requests to request.loq file
 app.use(requestLogger);
+
 // login, auth and all other router
 app.use('/api', mainRouter);
 // logging all errors to error.log file

@@ -19,19 +19,65 @@
       "description": "all about the posts"
     },
     {
-      "name": "Users",
-      "description": "all about the users"
+      "name": "Login",
+      "description": "all about the authorization"
     }
   ],
 
   "paths": {
-    "/users": {
+    "/signin": {
       "post": {
-        "description": "",
-        "parameters": [],
+        "tags": ["Login"],
+        "description": "Login as registered user",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userName & password",
+            "required": true,
+            "description": "2 to 20 characters",
+            "schema": {
+              "$ref": "#definitions/User"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "409": {
+            "description": "Conflict"
+          }
+        }
+      }
+    },
+
+    "/signup": {
+      "post": {
+        "tags": ["Login"],
+        "description": "Creating a new user with userName and password. Password must be 4 to 20 symbols. Name better doesn't have any special symbols. They might be removed and it might leads to an error.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userName & password",
+            "required": true,
+            "description": "2 to 20 characters",
+            "schema": {
+              "$ref": "#definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "409": {
+            "description": "Conflict"
           }
         }
       }
@@ -40,14 +86,20 @@
       "post": {
         "tags": ["Posts"],
         "description": "Add a new post to the DB",
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+
         "parameters": [
           {
             "in": "body",
-            "name": "body",
+            "name": "Text for the post",
             "required": true,
-            "description": "Post you want to create",
+            "description": "Text. No more than 200 characters, no less than 2.",
             "schema": {
-              "$ref": "#definitions/Post"
+              "$ref": "#definitions/Post/properties/text"
             }
           }
         ],
@@ -64,7 +116,26 @@
       "get": {
         "tags": ["Posts"],
         "description": "get an array of all the posts saved in DB",
-        "parameters": [],
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ],
+
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pagination",
+            "type": "integer",
+            "description": "Amount of posts by the page. By default it's 5"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "type": "integer",
+            "description": "Request the exact page in pagination. By default it's 1"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -76,19 +147,54 @@
       }
     }
   },
+  "securityDefinitions": {
+    "APIKeyHeader": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "JWT Token"
+    }
+  },
 
   "definitions": {
-    "Post": {
+    "Id": {
+      "properties": {
+        "uuid": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
       "type": "object",
       "properties": {
         "userName": {
           "type": "string",
-          "minLength": 2
+          "minLength": 2,
+          "maxLength": 20
+        },
+        "password": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 20
+        }
+      }
+    },
+    "Post": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/User"
+          }
         },
         "text": {
           "type": "string",
           "minLength": 2,
           "maxLength": 200
+        },
+        "date": {
+          "type": "string",
+          "default": "Date.now"
         }
       }
     },

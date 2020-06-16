@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Test chat</title>
+  </head>
+  <body>
+    <div class="root">
+      <section class="root__section header">
+        <h1 class="header__title">Chat app</h1>
+      </section>
+      <section class="root__section nav">
+        <nav class="nav">
+          <a href="/" class="nav__link link">Main page</a>
+          <a href="./messages/index.html" class="nav__link link">Messages</a>
+          <button class="button nav__button">Login</button>
+        </nav>
+      </section>
+
+      <div class="popup"></div>
+
+      <section class="root__section chat">
+        <div class="messages-area">
+          <div class="message__container">
+            <h3 class="message__name">User Name</h3>
+            <p class="message__text">Message text</p>
+            <p class="message__date">Msg date</p>
+          </div>
+          <div class="message__container">
+            <h3 class="message__name">User Name</h3>
+            <p class="message__text">Message text</p>
+            <p class="message__date">Msg date</p>
+          </div>
+          <div class="message__container">
+            <h3 class="message__name">User Name</h3>
+            <p class="message__text">Message text</p>
+            <p class="message__date">Msg date</p>
+          </div>
+        </div>
+
+        <form action="submit" class="input-area">
+          <textarea rows="5" cols="1" class="input__text"></textarea>
+          <button class="button input__button">Send</button>
+        </form>
+      </section>
+    </div>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

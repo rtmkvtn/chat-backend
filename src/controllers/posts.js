@@ -1,20 +1,23 @@
 const Post = require('../models/post');
 const BadRequestError = require('../errorsModules/BadRequestError');
-const NotFoundError = require('../errorsModules/NotFoundError');
-const constants = require('../constants');
 
 module.exports.getPosts = (req, res, next) => {
+  const pagination = req.query.pagination ? parseInt(req.query.pagination, 10) : 5;
+  const page = req.query.page ? parseInt(req.query.page, 10) : 1;
+
   Post.find({})
-    .orFail(new NotFoundError(constants.errors.NO_DOC))
+    .skip((page - 1) * pagination)
+    .limit(pagination)
+    .populate('owner')
     .then((posts) => res.send(posts))
     .catch(next);
 };
 
 module.exports.createPost = (req, res, next) => {
-  const { userName, text, date } = req.body;
+  const { text, date } = req.body;
 
   Post.create({
-    userName,
+    owner: req.user._id,
     text,
     date,
   })
