@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
@@ -16,6 +17,8 @@ const config = require('./config.js');
 const swaggerOptions = require('./swagger.json');
 
 const app = express();
+
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Swagger auto documentation set up
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
