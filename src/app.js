@@ -18,8 +18,6 @@ const swaggerOptions = require('./swagger.json');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public'))); // теперь клиент имеет доступ только к публичным файлам
-
 // Swagger auto documentation set up
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
