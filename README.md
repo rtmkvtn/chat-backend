@@ -6,7 +6,7 @@ Api for the chat app
 
 ## Available At:
 
-- 84.201.161.33/api
+- [link](84.201.161.33)
 
 Node.js server with express app.  
 App connects to mongodb using mongoose.  
@@ -14,6 +14,10 @@ Db has 2 collections:
 
 - users
 - posts
+
+## Postman Collection:
+
+https://www.getpostman.com/collections/2780e9d92a8203b78d7a
 
 ## Authorization:
 
