@@ -4,6 +4,12 @@ Api for the chat app
 
 ## v 1.0.0
 
+## Navigation:
+
+- [Postman collection](#postman)
+- [Installing](#install)
+- [Realized routes](#routes)
+
 ## Available At:
 
 - [link](84.201.161.33)
@@ -14,6 +20,8 @@ Db has 2 collections:
 
 - users
 - posts
+
+<a name="postman"></a>
 
 ## Postman Collection:
 
@@ -27,6 +35,8 @@ After success sign in JWT Token will be added to cookies automatically.
 So, after getting successful response from `/signin` route request, you'll be able to use all other routes.
 
 ---
+
+<a name="routes"></a>
 
 ## Realized routes:
 
@@ -240,6 +250,8 @@ Adds new post to the posts collection. Returns this post's json data
   - **Content:** `{ message: 'Authorization is required!' }`
 
 ---
+
+<a name="install"></a>
 
 ## Installing
 
