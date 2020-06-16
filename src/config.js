@@ -9,6 +9,6 @@ const limiter = rateLimit({
 module.exports = {
   PORT,
   JWT_SECRET: NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
-  MONGO_DB_ADDRESS: NODE_ENV === 'production' ? MONGO_DB_ADDRESS : 'mongodb://localhost:27017/test-chat-DB',
+  MONGO_DB_ADDRESS: NODE_ENV === 'production' ? MONGO_DB_ADDRESS : 'mongodb://mongo:27017/test-chat-DB',
   limiter,
 };

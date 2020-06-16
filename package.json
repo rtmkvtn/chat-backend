@@ -4,7 +4,7 @@
   "description": "chat backend",
   "main": "./src/app.js",
   "scripts": {
-    "start": "NODE_ENV=production MONGO_DB_ADDRESS=mongodb://mongo:27017/test-chat-DB node ./src/app.js",
+    "start": "node ./src/app.js",
     "dev": "NODE_ENV=development nodemon -w ./src/ ./src/app.js"
   },
   "repository": {
