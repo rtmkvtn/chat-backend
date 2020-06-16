@@ -12,7 +12,7 @@ Api for the chat app
 
 ## Available At:
 
-- [link](84.201.161.33)
+- [link](http://84.201.161.33)
 
 Node.js server with express app.  
 App connects to mongodb using mongoose.  
@@ -36,7 +36,7 @@ So, after getting successful response from `/signin` route request, you'll be ab
 
 ## Swagger documentation:
 
-- [link](84.201.161.33/api-docs)
+- [link](http://84.201.161.33/api-docs)
 
 ---
 
