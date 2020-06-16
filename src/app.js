@@ -29,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose
-  .connect(config.MONGO_DB_ADDRESS, {
+  .connect('mongodb://mongo:27017/test-chat-DB', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
