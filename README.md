@@ -34,6 +34,10 @@ There is only two routes available without authorization: `/signup` and `/signin
 After success sign in JWT Token will be added to cookies automatically.
 So, after getting successful response from `/signin` route request, you'll be able to use all other routes.
 
+## Swagger documentation:
+
+- [link](84.201.161.33/api-docs)
+
 ---
 
 <a name="routes"></a>
