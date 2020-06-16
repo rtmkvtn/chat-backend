@@ -9,7 +9,7 @@ Api for the chat app
 - 84.201.161.33/api
 
 Node.js server with express app.  
-App connects to mongodb `mongodb://localhost:27017/test-chat-DB` using mongoose.  
+App connects to mongodb using mongoose.  
 Db has 2 collections:
 
 - users

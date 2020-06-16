@@ -4,7 +4,7 @@
   "description": "chat backend",
   "main": "./src/app.js",
   "scripts": {
-    "start": "NODE_ENV=development node ./src/app.js",
+    "start": "NODE_ENV=production node ./src/app.js",
     "dev": "NODE_ENV=development nodemon -w ./src/ ./src/app.js"
   },
   "repository": {
